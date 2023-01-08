@@ -9,3 +9,55 @@
     border-top: 1px solid black;
     max-height: 2.8rem;
 }
+
+.menu-bars:hover,
+.user-icon,
+.user-name,
+.notification {
+    cursor: pointer;
+}
+
+.navbar-toggler {
+    border: none;
+    color: black;
+    cursor: pointer;
+}
+
+.search {
+    width: 100%;
+    border-radius: 15px;
+    padding: 5px 5px 5px 25px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 5;
+}
+
+.corner {
+    position: absolute;
+    top: 0.5rem;
+    right: 1rem;
+    height: 20px;
+    width: 20px;
+    z-index: 10;
+    color: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    border: none;
+}
+
+.search:focus {
+    border-color: inherit;
+    box-shadow: none;
+}
+
+.search-box {
+    position: relative;
+    width: 190px;
+    height: 30px;
+}
+
+.nav-items{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}

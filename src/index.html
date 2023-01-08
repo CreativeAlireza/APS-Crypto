@@ -1,57 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CA - Crypto</title>
-    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.css"></link>
-    <link rel="stylesheet" href="/public/assests/css/main.css"></link>
-    
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.css">
+    </link>
+    <link rel="stylesheet" href="/node_modules/fontawesome/css/all.css">
+    </link>
+    <link rel="stylesheet" href="/public/assests/css/main.css">
+    </link>
+
     <script defer src="/node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    <script defer src="/node_modules/fontawesome/js/all.js"></script>
 </head>
+
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg bg-light">
-            <div class="container-fluid">
-              <a class="navbar-brand" href="#">Navbar</a>
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                  <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
-                  </li>
-                  <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      Dropdown
-                    </a>
-                    <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="#">Action</a></li>
-                      <li><a class="dropdown-item" href="#">Another action</a></li>
-                      <li><hr class="dropdown-divider"></li>
-                      <li><a class="dropdown-item" href="#">Something else here</a></li>
-                    </ul>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link disabled">Disabled</a>
-                  </li>
-                </ul>
-                <form class="d-flex" role="search">
-                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                  <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
-              </div>
+        <nav class="navbar navbar-expand-lg bg-light shadow">
+            <div class="container-fluid nav-items justify-content-between">
+                <div class="d-flex w-75 align-items-center">
+                    <div class="menu-bars px-2 pe-3">
+                        <i class="fa-regular fa-bars"></i>
+                    </div>
+                    <a class="navbar-brand" href="#">CA Currencies</a>
+                    <form class="search-box d-flex w-50" role="search">
+                        <input class="search form-control me-2" type="search" placeholder="Search..." aria-label="Search">
+                        <i class="corner fa-regular fa-magnifying-glass"></i>
+                    </form>
+                </div>
+                <div class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fa-regular fa-arrow-down-left"></i>
+                </div>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+                    <div class="d-flex">
+                        <div class="px-4">
+                            <i class="notification fa-regular fa-bell"></i>
+                        </div>
+                        <div>
+                            <i class="user-icon fa-regular fa-user"></i>
+                            <span class="user-name ps-2">Profile</span>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </nav>
+        </nav>
     </header>
 
     <main></main>
-    
+
     <footer class="footer container-fluid d-flex py-2 bg-light">
         <p class="production-group">CA Production</p>
         <div class="direct-contact d-flex">
@@ -63,4 +63,5 @@
         <p>&#169;<span class="year-cpright">2023</span></p>
     </footer>
 </body>
+
 </html>
