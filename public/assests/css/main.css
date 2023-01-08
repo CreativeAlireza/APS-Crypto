@@ -56,7 +56,7 @@
     height: 30px;
 }
 
-.nav-items{
+.nav-items {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -72,12 +72,51 @@ ul li {
 
 .menu {
     position: fixed;
-    height: 100%;
     min-width: 18rem;
+    height: 100%;
     z-index: 10;
     background-color: rgba(255, 255, 255, 1);
 }
 
+.fadein, .fadeout {
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    visibility: hidden;
+}
+
+.fadein {
+    animation-name: fadeIn;
+}
+
+.fadeout {
+    animation-name: fadeOut;
+}
+
+
 .close-nav-panel:hover {
     cursor: pointer;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    100% {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    100% {
+        opacity: 0;
+        visibility: hidden;
+    }
 }

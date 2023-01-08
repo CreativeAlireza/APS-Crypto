@@ -15,6 +15,8 @@
 
     <script defer src="/node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
     <script defer src="/node_modules/fontawesome/js/all.js"></script>
+
+    <script type="module" defer src="/src/app.js"></script>
 </head>
 
 <body>
@@ -22,7 +24,9 @@
         <div class="nav-panel py-3 d-flex justify-content-around">
             <div></div>
             <p class="fs-5">Navigation Panel</p>
-            <i class="close-nav-panel fs-3 mt-1 fa-light fa-xmark"></i>
+            <div class="close-nav-panel">
+                <i class=" fs-3 mt-1 fa-light fa-xmark"></i>
+            </div>
         </div>
         <ul>
             <li class="nav-home">Home</li>
@@ -64,7 +68,9 @@
         </nav>
     </header>
 
-    <main></main>
+    <main class="main">
+
+    </main>
 
     <footer class="footer container-fluid d-flex py-2 bg-light">
         <p class="production-group">CA Production</p>
