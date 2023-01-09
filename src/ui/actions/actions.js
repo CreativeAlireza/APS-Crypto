@@ -1,18 +1,21 @@
 const menuBars = document.querySelector('.menu-bars');
 const menu = document.querySelector('.menu');
 const closeNavPanel = document.querySelector('.close-nav-panel');
-const body = document.querySelector('body');
+const navList = document.querySelector('.nav-list');
+const main = document.querySelector('main');
 
 export function NavPanelActions(){
-
-    closeNavPanel.addEventListener('click', () => {
-        console.log("close");
+    function closePanel(){
         menu.classList.remove('fadein')
         menu.classList.add('fadeout');
-    })
-    menuBars.addEventListener('click', () => {
-        console.log("open");
+    }
+    function openPanel(){
         menu.classList.remove('d-none', 'fadeout')
         menu.classList.add('fadein');
-    })
+    }
+
+    main.addEventListener('click', () => closePanel());
+    navList.addEventListener('click', () => closePanel());
+    closeNavPanel.addEventListener('click', () => closePanel());
+    menuBars.addEventListener('click', () => openPanel());
 }
