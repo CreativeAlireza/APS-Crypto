@@ -4,7 +4,7 @@ import { logInUI } from "../login/login.js";
 
 const main = document.querySelector('.main');
 
-function getUserData(){
+function getUserDataInSignup(){
     const signupBtn = document.querySelector('.signup-btn');
     const firstname = document.querySelector('#firstname');
     const lastname = document.querySelector('#lastname');
@@ -91,7 +91,7 @@ export function signUpUI(){
     main.insertAdjacentHTML('afterbegin', element);
     
     // get user data by sign up form
-    getUserData();
+    getUserDataInSignup();
 
     // go to log in page if user already has an account  
     goToLoginPage();
