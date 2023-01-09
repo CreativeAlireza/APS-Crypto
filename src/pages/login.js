@@ -1,8 +1,8 @@
-import { clearMain } from "../../ui/domActions/domActions.js";
-import { signUpUI } from "../signup/signup.js";
-import { isAuth } from "../athentication.js";
-import { message } from "../../helper/message/message.js";
-import { portfolio } from "../../pages/portfolio.js";
+import { clearMain } from "../ui/domActions/domActions.js";
+import { signUpUI } from "./signup.js";
+import { isAuth } from "../authentication/authentication.js";
+import { message } from "../helper/message/message.js";
+import { portfolio } from "../pages/portfolio.js";
 
 const main = document.querySelector('.main');
 

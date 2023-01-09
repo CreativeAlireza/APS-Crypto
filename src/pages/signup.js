@@ -1,6 +1,6 @@
-import { clearMain } from "../../ui/domActions/domActions.js";
-import { saveData } from "../../helper/dataStorage.js";
-import { logInUI } from "../login/login.js";
+import { clearMain } from "../ui/domActions/domActions.js";
+import { saveData } from "../helper/dataStorage.js";
+import { logInUI } from "./login.js";
 
 const main = document.querySelector('.main');
 

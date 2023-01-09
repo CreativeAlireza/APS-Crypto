@@ -1,5 +1,5 @@
 import {NavPanelActions} from "./ui/actions/actions.js";
-import { logInUI } from "./authentication/login/login.js";
+import { logInUI } from "./pages/login.js";
 
 const navList = document.querySelector('.nav-list');
 
