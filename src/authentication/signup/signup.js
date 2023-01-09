@@ -21,6 +21,7 @@ function getUserData(){
             email: email.value,
             password: password.value,
             isOver18: flexCheckDefault.checked,
+            isLogIn: true
         }
         saveData("user", JSON.stringify(user));
     })
