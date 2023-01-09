@@ -1,8 +1,30 @@
 import { clearMain } from "../../ui/domActions/domActions.js";
-import { getData } from "../../helper/dataStorage.js";
 import { signUpUI } from "../signup/signup.js";
+import { isAuth } from "../athentication.js";
+import { message } from "../../helper/message/message.js";
+import { portfolio } from "../../pages/portfolio.js";
 
 const main = document.querySelector('.main');
+
+function getUserDataInLogin(){
+    const loginBtn = document.querySelector('.login-btn');
+    const username = document.querySelector('#username');
+    const password = document.querySelector('#password');
+
+    loginBtn.addEventListener('click', () => {
+        const user = {
+            userName: username.value,
+            password: password.value,
+        }
+        const isAuthenticate = isAuth(user, "user");
+        isAuthenticate ?
+        message(
+            `Loading Portfolio...`, portfolio, 3000) :
+        message(
+            `Entered Info is Wrong.
+            Please check it again or Sign Up.`);
+    })
+}
 
 function goToSignupPage(){
     const userSignup = document.querySelector('.user-signup');
@@ -31,8 +53,8 @@ export function logInUI() {
                 <input type="password" name="password" id="password" class="w-100 inputs ps-2">
             </div>
 
-            <input type="button" value="Log In" class="login-btn bg-light border w-100 p-2 mt-5">
-
+            <input type="button" value="Log In" class="login-btn bg-light border w-100 p-2 mt-5" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            
             <div>
             Doesn't have any account?
                 <input type="button" value="Sign Up" class="user-signup bg-light border-0 text-primary">
@@ -44,6 +66,8 @@ export function logInUI() {
 
     main.insertAdjacentHTML('afterbegin', element);
 
+    // get user data by sign up form
+    getUserDataInLogin();
 
     // go to log in page if user already has an account  
     goToSignupPage();
