@@ -1,21 +1,41 @@
 import { clearMain } from "../../ui/domActions/domActions.js";
+import { saveData } from "../../helper/dataStorage.js";
 
 const main = document.querySelector('.main');
 
+function getUserData(){
+    const signupBtn = document.querySelector('.signup-btn');
+    const firstname = document.querySelector('#firstname');
+    const lastname = document.querySelector('#lastname');
+    const username = document.querySelector('#username');
+    const email = document.querySelector('#email');
+    const password = document.querySelector('#password');
+    const flexCheckDefault = document.querySelector('#flexCheckDefault');
 
-
-export function signUp(){
+    signupBtn.addEventListener('click', () => {
+        const user = {
+            firstName: firstname.value,
+            lastName: lastname.value,
+            userName: username.value,
+            email: email.value,
+            password: password.value,
+            isOver18: flexCheckDefault.checked,
+        }
+        saveData("user", JSON.stringify(user));
+    })
+}
+export function signUpUI(){
     const sheet = new CSSStyleSheet();
 
     clearMain();
 
     main.classList.add('d-flex', 'justify-content-center', 'align-items-center')
-    
+
     const element = `
     <section class="signup d-flex flex-column justify-content-between border rounded bg-light shadow m-5 p-4">
         <p class="fs-4 text-center">Sign Up</p>
         <form class="mt-5">
-            <div class="p-2  d-flex justify-content-between">
+            <div class="p-2 d-flex justify-content-between">
                 <div>
                     <label for="firstname" class="d-block">First Name</label>
                     <input type="text" name="firstname" id="firstname" class="inputs input-split ps-2">
@@ -26,22 +46,22 @@ export function signUp(){
                 </div>
             </div>
 
-            <div class=" p-2 ">
+            <div class="p-2">
                 <label for="username" class="d-block">Username</label>
                 <input type="text" name="username" id="username" class="w-100 inputs ps-2">
             </div>
 
-            <div class=" p-2 ">
+            <div class="p-2">
                 <label for="email" class="d-block">Email</label>
                 <input type="email" name="email" id="email" class="w-100 inputs ps-2">
             </div>
 
-            <div class=" p-2 ">
+            <div class="p-2">
                 <label for="password" class="d-block">Password</label>
                 <input type="password" name="password" id="password" class="w-100 inputs ps-2">
             </div>
 
-            <div class=" p-2 ">
+            <div class="p-2">
                 <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
                 <label class="form-check-label" for="flexCheckDefault">
                     I am over 18 years old
@@ -59,8 +79,11 @@ export function signUp(){
     </section>
     `;
 
-    main.insertAdjacentElement('afterbegin', element);
+    main.insertAdjacentHTML('afterbegin', element);
     
+    getUserData()
+
+
     sheet.replaceSync(`
     .signup{
         width: 28rem;

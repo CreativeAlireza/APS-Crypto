@@ -1,5 +1,17 @@
 import {NavPanelActions} from "./ui/actions/actions.js";
-import { signUp } from "./authentication/signup/signup.js";
+import { signUpUI } from "./authentication/signup/signup.js";
 
-NavPanelActions()
-signUp()
+const navList = document.querySelector('.nav-list');
+
+
+
+NavPanelActions();
+
+navList.addEventListener('click', (e) => {
+    switch (e.target.innerText) {
+        case "Sign In":
+            signUpUI();
+            break;
+        default:
+    }
+});
