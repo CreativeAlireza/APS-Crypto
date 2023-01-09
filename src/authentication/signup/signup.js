@@ -1,5 +1,6 @@
 import { clearMain } from "../../ui/domActions/domActions.js";
 import { saveData } from "../../helper/dataStorage.js";
+import { logInUI } from "../login/login.js";
 
 const main = document.querySelector('.main');
 
@@ -24,9 +25,16 @@ function getUserData(){
         saveData("user", JSON.stringify(user));
     })
 }
+
+function goToLoginPage(){
+    const userLogin = document.querySelector('.user-login');
+    userLogin.addEventListener('click', () => logInUI())
+}
+
 export function signUpUI(){
     const sheet = new CSSStyleSheet();
 
+    // clear main tag and insert sign up form elements
     clearMain();
 
     main.classList.add('d-flex', 'justify-content-center', 'align-items-center')
@@ -81,9 +89,13 @@ export function signUpUI(){
 
     main.insertAdjacentHTML('afterbegin', element);
     
-    getUserData()
+    // get user data by sign up form
+    getUserData();
 
+    // go to log in page if user already has an account  
+    goToLoginPage();
 
+    // add CSS Styles
     sheet.replaceSync(`
     .signup{
         width: 28rem;
