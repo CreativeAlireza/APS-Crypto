@@ -1,8 +1,13 @@
 import { clearMain } from "../../ui/domActions/domActions.js";
-import { saveData } from "../../helper/dataStorage.js";
+import { getData } from "../../helper/dataStorage.js";
 import { signUpUI } from "../signup/signup.js";
 
 const main = document.querySelector('.main');
+
+function goToSignupPage(){
+    const userSignup = document.querySelector('.user-signup');
+    userSignup.addEventListener('click', () => signUpUI())
+}
 
 export function logInUI() {
     const sheet = new CSSStyleSheet();
@@ -38,6 +43,10 @@ export function logInUI() {
     `;
 
     main.insertAdjacentHTML('afterbegin', element);
+
+
+    // go to log in page if user already has an account  
+    goToSignupPage();
 
     // add CSS Styles
     sheet.replaceSync(`
