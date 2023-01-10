@@ -1,4 +1,4 @@
-import { topPrice } from "./topPrice.js";
+import { trending } from "./trending.js";
 import { topMarketCap  } from "./topMarketCap.js";
 import { tooltip } from "../../helper/tooltip/tooltip.js";
 
@@ -14,10 +14,10 @@ export function topCharts() {
 
     main.insertAdjacentHTML('afterbegin', element);
     
-    // add top price component
-    topPrice();
+    // add trending component
+    trending();
 
-    // add top price component
+    // add top marketcap component
     topMarketCap();
 
     // add CSS Styles
@@ -46,6 +46,7 @@ export function topCharts() {
 
     document.adoptedStyleSheets = [sheet];
 
-    tooltip();
-
+    setTimeout(() => {
+        tooltip();
+    }, 1000);
 }
