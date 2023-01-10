@@ -31,7 +31,7 @@ export async function coinsList(){
                                 <td class="d-flex justify-content-start">
                                     <img 
                                         src="${el.image}" 
-                                        style="width: 2rem"
+                                        style="width: 2rem;height: 2rem;"
                                         alt="${el.name}">
                                     <div class="d-flex align-items-center ps-3">
                                         ${el.name}
