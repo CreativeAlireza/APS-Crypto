@@ -9,9 +9,11 @@ export async function topMarketCap(){
     const element = `
         <div class="col m-5 mw-75" style="min-width: 40%;max-width: 90%;">
             <div class="top-chart border rounded shadow p-3">
-                <p class="top-charts-price text-start fs-4 ps-1 mb-4">Top Market Cap</p>
+                <p class="top-charts-price text-start fs-4 ps-1 mb-4">
+                    Top Market Cap  <span class="fs-5">〽</span>
+                </p>
                 ${String(coins.map(el => `
-                    <div class="d-flex justify-content-between my-2">
+                    <div class="d-flex justify-content-between align-items-start my-2">
                             <a class="coin-info d-flex align-items-center text-decoration-none text-dark" href="">
                                 <img src="${el.image}"
                                     alt="${el.name}"
