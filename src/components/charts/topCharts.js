@@ -1,6 +1,6 @@
 import { topPrice } from "./topPrice.js";
 import { topMarketCap  } from "./topMarketCap.js";
-import { tooltip } from "../helper/tooltip/tooltip.js";
+import { tooltip } from "../../helper/tooltip/tooltip.js";
 
 export function topCharts() {
     const sheet = new CSSStyleSheet();
