@@ -2,9 +2,8 @@ import { clearMain } from "../ui/domActions/domActions.js";
 import { signUpUI } from "./signup.js";
 import { isAuth } from "../authentication/authentication.js";
 import { message } from "../helper/message/message.js";
-import { portfolio } from "../pages/portfolio.js";
+import { portfolioUI } from "../pages/portfolio/portfolio.js";
 
-const main = document.querySelector('.main');
 
 function getUserDataInLogin(){
     const loginBtn = document.querySelector('.login-btn');
@@ -19,7 +18,7 @@ function getUserDataInLogin(){
         const isAuthenticate = isAuth(user, "user");
         isAuthenticate ?
         message(
-            `Loading Portfolio...`, portfolio, 3000) :
+            `Loading Portfolio...`, portfolioUI, 3000) :
         message(
             `Entered Info is Wrong.
             Please check it again or Sign Up.`);
@@ -35,7 +34,7 @@ export function logInUI() {
     const sheet = new CSSStyleSheet();
 
     // clear main tag and insert sign up form elements
-    clearMain();
+    const main = clearMain();
 
     main.classList.add('d-flex', 'justify-content-center', 'align-items-center')
 
