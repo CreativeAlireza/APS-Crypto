@@ -7,13 +7,13 @@ export function aboutUI() {
         <div class="container container-lg container-md container-sm text-center">
             <div class="row my-5">
                 <div class="col-lg-4 col-md-4 col-md-12">
-                    <div class="w-100">
+                    <div style="width: 90% !important;">
                         <img src="/public/assests/images/developer.jpg" alt="developer-image"
-                            class="rounded-circle w-100">
+                            class="rounded-circle w-100 mt-2">
                     </div>
                 </div>
                 <div class="col-lg-8 col-md-8 col-md-12" style="text-align: justify;">
-                    <div class="pt-4">
+                    <div class="mt-5 ps-3">
                         <p>
                             Hello dear friends from the internet
                         </p>
@@ -35,7 +35,7 @@ export function aboutUI() {
                 </div>
             </div>
             <div class="row my-5">
-                <div class="col-lg-12 col-md-12 col-md-12" style="text-align: justify;">
+                <div class="col-lg-10 col-md-10 col-md-10" style="text-align: justify;">
                     <div class="pt-1">
                         <p>
                             This website is only for building my resume.
