@@ -11,7 +11,7 @@ export async function coinsList(){
             class="coinsList-row row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 text-center d-flex justify-content-around align-items-center">
             <div class="col-lg-11 col-md-11 col-sm-12 table-responsive">
                 <table class="table caption-top">
-                    <caption>List of Coins</caption>
+                    <caption class="fs-5">List of Coins</caption>
                     <thead class="table-dark">
                         <tr>
                         <th scope="col" class="rounded-start"></th>
