@@ -1,6 +1,4 @@
 export function topCurrencies() {
-    console.log('top currencies');
-
     return `
         <div class="col-12 col-lg-7 col-md-10 col-sm-12 mt-3">
             <div class="border rounded shadow d-flex flex-column border-0">
