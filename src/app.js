@@ -3,6 +3,7 @@ import { logInUI } from "./pages/login.js";
 import { homeUI } from "./pages/home.js";
 import { portfolioUI } from "./pages/portfolio.js";
 import { aboutUI } from "./pages/about.js";
+import { profileUI } from "./pages/profile.js";
 
 const navList = document.querySelector('.nav-list');
 
@@ -13,6 +14,9 @@ navList.addEventListener('click', (e) => {
     switch (e.target.innerText) {
         case "Home":
             homeUI();
+            break;
+        case "Profile":
+            profileUI();
             break;
         case "Portfolio":
             portfolioUI();
