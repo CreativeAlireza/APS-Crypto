@@ -48,5 +48,5 @@ export function topCharts() {
 
     setTimeout(() => {
         tooltip();
-    }, 1000);
+    }, 3000);
 }
