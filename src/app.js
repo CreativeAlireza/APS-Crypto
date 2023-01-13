@@ -4,6 +4,7 @@ import { homeUI } from "./pages/home.js";
 import { portfolioUI } from "./pages/portfolio.js";
 import { aboutUI } from "./pages/about.js";
 import { profileUI } from "./pages/profile.js";
+import { transactionUI } from "./pages/Transaction.js";
 
 const navList = document.querySelector('.nav-list');
 
@@ -20,6 +21,9 @@ navList.addEventListener('click', (e) => {
             break;
         case "Portfolio":
             portfolioUI();
+            break;
+        case "Transaction":
+            transactionUI();
             break;
         case "About":
             aboutUI();
