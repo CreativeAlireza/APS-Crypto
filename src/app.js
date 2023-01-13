@@ -1,15 +1,19 @@
-import { NavPanelActions } from "./ui/actions/actions.js";
 import { logInUI } from "./pages/login.js";
 import { homeUI } from "./pages/home.js";
 import { portfolioUI } from "./pages/portfolio.js";
 import { aboutUI } from "./pages/about.js";
 import { profileUI } from "./pages/profile.js";
 import { transactionUI } from "./pages/Transaction.js";
+import { initUI } from "./ui/actions/init.js";
+import { logoToHome } from "./helper/logoToHome.js";
+import { userProfile } from "./helper/userProfile.js";
 
 const navList = document.querySelector('.nav-list');
 
-NavPanelActions();
-homeUI();
+initUI()
+
+logoToHome();
+userProfile();
 
 navList.addEventListener('click', (e) => {
     switch (e.target.innerText) {
