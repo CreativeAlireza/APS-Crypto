@@ -1,5 +1,6 @@
 import { clearMain } from "../ui/domActions/domActions.js";
 import { userProfile } from "../helper/userProfile.js";
+import { profileNav } from "../helper/profileNav.js";
 
 export function transactionUI() {
     const main = clearMain();
@@ -70,4 +71,5 @@ export function transactionUI() {
     main.insertAdjacentHTML('afterbegin', element);
     
     userProfile();
+    profileNav();
 }

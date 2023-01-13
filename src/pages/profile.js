@@ -1,12 +1,12 @@
 import { clearMain } from "../ui/domActions/domActions.js";
-import { getData, saveData, getToken } from "../helper/dataStorage.js";
+import { getData, getToken } from "../helper/dataStorage.js";
 import { firstCharToUpperCase } from "../helper/firstCharToUpperCase.js";
-import { userProfile } from "../helper/userProfile.js";
-import { homeUI } from "./home.js";
+import { logOut } from "../helper/logout.js";
+import { profileNav } from "../helper/profileNav.js";
 
-export function profileUI(props){
+export function profileUI(props) {
     const main = clearMain();
-    
+
     const user = props ? getData(`user${props}`) : getData(getToken('userAccess'));
 
     const element = `
@@ -45,14 +45,7 @@ export function profileUI(props){
 
     main.insertAdjacentHTML('afterbegin', element);
 
-    logOut()
+    logOut();
+    profileNav();
 }
 
-function logOut() {
-        const logoutBtn = document.querySelector('.logout-btn');
-        logoutBtn.addEventListener('click', () => {
-            saveData(`userAccess`, "");
-            userProfile();
-            homeUI();
-        })
-}

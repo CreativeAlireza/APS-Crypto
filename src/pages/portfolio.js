@@ -4,6 +4,7 @@ import { overview } from "../components/portfolio/overview.js";
 import { topCurrencies } from "../components/portfolio/topCurrencies.js";
 import { tradeHistory } from "../components/portfolio/tradeHistory.js";
 import { userProfile } from "../helper/userProfile.js";
+import { profileNav } from "../helper/profileNav.js";
 
 export function portfolioUI() {
     const main = clearMain();
@@ -24,4 +25,5 @@ export function portfolioUI() {
     portfolio.insertAdjacentHTML('beforeend', tradeHistory());
 
     userProfile();
+    profileNav();
 }
