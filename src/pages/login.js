@@ -1,11 +1,11 @@
 import { clearMain } from "../ui/domActions/domActions.js";
 import { signUpUI } from "./signup.js";
-import { isAuth } from "../authentication/authentication.js";
+import { userAuth } from "../authentication/authentication.js";
 import { message } from "../helper/message/message.js";
 import { portfolioUI } from "./portfolio.js";
+import { saveData } from "../helper/dataStorage.js";
 
-
-function getUserDataInLogin(){
+function getUserDataInLogin() {
     const loginBtn = document.querySelector('.login-btn');
     const username = document.querySelector('#username');
     const password = document.querySelector('#password');
@@ -15,17 +15,20 @@ function getUserDataInLogin(){
             userName: username.value,
             password: password.value,
         }
-        const isAuthenticate = isAuth(user, "user");
-        isAuthenticate ?
-        message(
-            `Loading Portfolio...`, portfolioUI, 3000) :
-        message(
-            `Entered Info is Wrong.
-            Please check it again or Sign Up.`);
+        const isAuthenticate = userAuth(user.userName, user.password);
+        if (isAuthenticate){
+            saveData('userAccess', isAuthenticate);
+            message(
+                `Loading Portfolio...`, portfolioUI, 3000)
+            }
+        else
+            message(
+                `Entered Info is Wrong.
+                Please check it again or Sign Up.`)
     })
 }
 
-function goToSignupPage(){
+function goToSignupPage() {
     const userSignup = document.querySelector('.user-signup');
     userSignup.addEventListener('click', () => signUpUI())
 }
