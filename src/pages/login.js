@@ -4,6 +4,7 @@ import { userAuth } from "../authentication/authentication.js";
 import { message } from "../helper/message/message.js";
 import { portfolioUI } from "./portfolio.js";
 import { saveData } from "../helper/dataStorage.js";
+import { navLogoutBtn } from "../helper/navLogoutBtn.js";
 
 function getUserDataInLogin() {
     const loginBtn = document.querySelector('.login-btn');
@@ -21,6 +22,7 @@ function getUserDataInLogin() {
 
             if (isAuthenticate){
                 saveData('userAccess', isAuthenticate);
+                navLogoutBtn()
                 message(
                     `Loading Portfolio...`, portfolioUI, 3000)
                 }
