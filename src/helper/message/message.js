@@ -1,4 +1,5 @@
 export function message(message, page = "", time = 0, title = 'Message') {
+    if(!message) return;
 
     const modal = document.querySelector('.modal');
     const modalBody = document.querySelector('.modal-body');
