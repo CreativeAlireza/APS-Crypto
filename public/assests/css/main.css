@@ -120,3 +120,23 @@ ul li {
         visibility: hidden;
     }
 }
+
+.coin-name {
+    width: 1rem !important
+}
+
+@media (width < 600px) {
+    .mcap {
+        display: none;
+    }
+    .price{
+        border-top-right-radius: 0.375rem;
+        border-bottom-right-radius: 0.375rem;
+    }
+}
+
+@media (width < 550px) {
+    .symbol {
+        display: none;
+    }
+}
