@@ -4,8 +4,10 @@ import { logInUI } from "./login.js";
 import { currnetDateFormat } from "../helper/currentDateFormat.js";
 import { profileUI } from "../pages/profile.js";
 import { navLogoutBtn } from "../helper/navLogoutBtn.js";
+import { message } from "../helper/message/message.js";
+import { firstCharToUpperCase } from "../helper/firstCharToUpperCase.js";
 
-function getUserDataInSignup(){
+function getUserDataInSignup() {
     const signupBtn = document.querySelector('.signup-btn');
     const firstname = document.querySelector('#firstname');
     const lastname = document.querySelector('#lastname');
@@ -32,29 +34,36 @@ function getUserDataInSignup(){
             gender: genderValue || 'Male',
             signUpDate: currnetDateFormat()
         }
-        saveData(`user${UserId}`, JSON.stringify(user));
-        saveData(`userAccess`, user.userId);
-        navLogoutBtn();
-        profileUI(UserId);
+
+        if (validation(user)) {
+            saveData(`user${UserId}`, JSON.stringify(user));
+            saveData(`userAccess`, user.userId);
+            message(
+                `Welcome ${firstCharToUpperCase(user.firstName)}`, profileUI(UserId), 3000)
+            navLogoutBtn();
+
+        } else {
+            message('Please Fill All Fields to Proceed.')
+        }
     })
 }
 
-function randomUserId(){
+function randomUserId() {
     const randomUmber = Math.floor(Math.random() * 1000 - 100);
     return randomUmber > 0 ? randomUmber : randomUmber * -1;
 }
 
-function goToLoginPage(){
+function goToLoginPage() {
     const userLogin = document.querySelector('.user-login');
     userLogin.addEventListener('click', () => logInUI())
 }
 
-export function signUpUI(){
+export function signUpUI() {
     const sheet = new CSSStyleSheet();
 
     // clear main tag and insert sign up form elements
     const main = clearMain();
-    
+
     main.classList.add('d-flex', 'justify-content-center', 'align-items-center')
 
     const element = `
@@ -105,7 +114,7 @@ export function signUpUI(){
                 </div>
             </div>
 
-            <input type="button" value="Sign Up" class="signup-btn bg-light border w-100 p-2 my-3">
+            <input type="button" value="Sign Up" class="signup-btn bg-light border w-100 p-2 my-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
 
             <div>
                 Already have an account?
@@ -119,7 +128,7 @@ export function signUpUI(){
     main.insertAdjacentHTML('afterbegin', element);
 
     toggleDropdown();
-    
+
     // get user data by sign up form
     getUserDataInSignup();
 
@@ -149,19 +158,24 @@ export function signUpUI(){
         width: 95%;
     }
     `);
-    
+
     document.adoptedStyleSheets = [sheet];
 }
 
-function toggleDropdown(){
+function toggleDropdown() {
     const genderDorpdown = document.querySelector('.gender-dorpdown');
     genderDorpdown.addEventListener('click', (e) => {
         const parent = e.target.closest('.gender-dorpdown');
-        const value = e.target.innerText 
+        const value = e.target.innerText
         Array.from(parent.children).map(el => {
-            if(value ===  el.children[0].innerText)
+            if (value === el.children[0].innerText)
                 el.children[0].classList.add('active')
             else el.children[0].classList.remove('active')
         })
     })
+}
+
+function validation(user) {
+    console.log(Object.values(user).every(el => el !== undefined && !!el));
+    return Object.values(user).every(el => el !== undefined && !!el);
 }
