@@ -1,21 +1,26 @@
 import { clearMain } from "../ui/domActions/domActions.js";
+import { getData, saveData } from "../helper/dataStorage.js";
+import { firstCharToUpperCase } from "../helper/firstCharToUpperCase.js";
+import { homeUI } from "./home.js";
 
-export function profileUI(){
+export function profileUI(props){
     const main = clearMain();
     
+    const user = getData(`user${props}`);
+    console.log(user);
     const element = `
         <div class="container container-lg container-md container-sm text-center" style="width: 75%;">
             <div class="row mt-5 mb-1 border rounded shadow p-3">
                 <div class="col col-12 col-lg-6 col-md-6 col-sm-12 col-sm-12">
-                    <img src="/public//assests/images/male.png" alt="" class="w-100">
+                    <img src="/public/assests/images/${user?.gender.toLowerCase()}.png" alt="" class="w-100">
                 </div>
 
                 <div class="col d-flex flex-column justify-content-evenly text-start fs-4">
                     <div class="ps-5 mt-3">
-                        <p class="mt-3" style="margin-bottom: 0;">Alireza Rahimi<i class="fa-solid fa-badge-check text-primary ps-2"></i></p>
-                        <p style="margin-bottom: 0;">Ar.Dvlpr@gmail.com</i></p>
-                        <span class="text-secondary d-block">creativealireza</span>
-                        <p class="mt-2">Joined Since 2023/01/06</p>
+                        <p class="mt-3" style="margin-bottom: 0;">${firstCharToUpperCase(user?.firstName)} ${firstCharToUpperCase(user?.lastName)}<i class="fa-solid fa-badge-check text-primary ps-2"></i></p>
+                        <p style="margin-bottom: 0;">${user?.email}</i></p>
+                        <span class="text-secondary d-block">${user?.userName}</span>
+                        <p class="mt-2">Joined Since ${user?.signUpDate}</p>
                     </div>
                     <div>
                         <input 
@@ -38,4 +43,14 @@ export function profileUI(){
     `;
 
     main.insertAdjacentHTML('afterbegin', element);
+
+    logOut()
+}
+
+function logOut() {
+        const logoutBtn = document.querySelector('.logout-btn');
+        logoutBtn.addEventListener('click', () => {
+            saveData(`userAccess`, "");
+            homeUI()
+        })
 }
