@@ -145,3 +145,8 @@ ul li {
     border: none;
     padding: 0;
 }
+
+.nav-logout-btn:hover {
+    background: rgb(200, 5, 5) !important;
+    color: white !important;
+}
