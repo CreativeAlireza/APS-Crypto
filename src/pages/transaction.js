@@ -1,8 +1,9 @@
 import { clearMain } from "../ui/domActions/domActions.js";
+import { userProfile } from "../helper/userProfile.js";
 
 export function transactionUI() {
     const main = clearMain();
-    
+
     const element = `
         <div class="container container-lg container-md container-sm py-5">
             <div class="row my-5 py-3 d-flex justify-content-between">
@@ -65,6 +66,8 @@ export function transactionUI() {
             </div>
         </div>
     `;
- 
+
     main.insertAdjacentHTML('afterbegin', element);
+    
+    userProfile();
 }

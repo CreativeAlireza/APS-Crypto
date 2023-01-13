@@ -1,4 +1,5 @@
 import { clearMain } from "../ui/domActions/domActions.js";
+import { userProfile } from "../helper/userProfile.js";
 
 export function aboutUI() {
     const main = clearMain();
@@ -59,4 +60,6 @@ export function aboutUI() {
     `;
 
     main.insertAdjacentHTML('afterbegin', element);
+    
+    userProfile();
 }
