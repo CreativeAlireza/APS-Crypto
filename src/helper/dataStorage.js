@@ -14,3 +14,8 @@ export function getAllKeys() {
     return Object.keys(localStorage).filter(el => el !== 'userAccess');
 }
 
+
+
+export function parseString(param){
+    return JSON.parse(param);
+}
