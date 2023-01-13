@@ -4,7 +4,7 @@ import { firstCharToUpperCase } from "./firstCharToUpperCase.js";
 export function userProfile() {
     const userIcon = document.querySelector('.user-icon');
     const userName = document.querySelector('.user-name');
-   
+
     const user = getData(getToken('userAccess'));
 
     if(user){
