@@ -64,37 +64,37 @@ export function signUpUI(){
             <div class="p-2 d-flex justify-content-between">
                 <div>
                     <label for="firstname" class="d-block">First Name</label>
-                    <input type="text" name="firstname" id="firstname" required class="inputs input-split ps-2">
+                    <input type="text" name="firstname" id="firstname" class="inputs input-split ps-2">
                 </div>
                 <div>
                     <label for="lastname" class="d-block ms-2">Last Name</label>
-                    <input type="text" name="lastname" id="lastname" required class="inputs input-split ps-2 ms-2">
+                    <input type="text" name="lastname" id="lastname" class="inputs input-split ps-2 ms-2">
                 </div>
             </div>
 
             <div class="p-2">
                 <label for="username" class="d-block">Username</label>
-                <input type="text" name="username" id="username" required class="w-100 inputs ps-2">
+                <input type="text" name="username" id="username" class="w-100 inputs ps-2">
             </div>
 
             <div class="p-2">
                 <label for="email" class="d-block">Email</label>
-                <input type="email" name="email" id="email" required class="w-100 inputs ps-2">
+                <input type="email" name="email" id="email" class="w-100 inputs ps-2">
             </div>
 
             <div class="p-2">
                 <label for="password" class="d-block">Password</label>
-                <input type="password" name="password" id="password" required class="form-control w-100 inputs ps-2">
+                <input type="password" name="password" id="password" class="form-control w-100 inputs ps-2">
             </div>
 
             <div class="d-flex justify-content-between">
                 <div class="dropdown me-1">
-                    <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" data-bs-offset="10,20">
+                    <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                         Gender
                     </button>
                     <ul class="gender-dorpdown dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Male</a></li>
-                        <li><a class="dropdown-item" href="#">Female</a></li>
+                        <li><a class="dropdown-item">Male</a></li>
+                        <li><a class="dropdown-item">Female</a></li>
                     </ul>
                 </div>
                 <div class="p-2 me-3">
@@ -118,6 +118,8 @@ export function signUpUI(){
 
     main.insertAdjacentHTML('afterbegin', element);
 
+    toggleDropdown();
+    
     // get user data by sign up form
     getUserDataInSignup();
 
@@ -149,4 +151,17 @@ export function signUpUI(){
     `);
     
     document.adoptedStyleSheets = [sheet];
+}
+
+function toggleDropdown(){
+    const genderDorpdown = document.querySelector('.gender-dorpdown');
+    genderDorpdown.addEventListener('click', (e) => {
+        const parent = e.target.closest('.gender-dorpdown');
+        const value = e.target.innerText 
+        Array.from(parent.children).map(el => {
+            if(value ===  el.children[0].innerText)
+                el.children[0].classList.add('active')
+            else el.children[0].classList.remove('active')
+        })
+    })
 }
