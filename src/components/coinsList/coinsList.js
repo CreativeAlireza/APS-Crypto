@@ -2,8 +2,6 @@ import { COINS_MARKETS } from "../../api/urls.js";
 import { fetchData } from "../../api/fetchAPI.js";
 
 export async function coinsList(){
-    const sheet = new CSSStyleSheet();
-
     const main = document.querySelector('.main');
     
     const coins = await fetchData(COINS_MARKETS);
@@ -18,7 +16,7 @@ export async function coinsList(){
                         <tr>
                         <th scope="col" class="rounded-start"></th>
                         <th scope="col">#</th>
-                        <th scope="col" class="coin-name">Name</th>
+                        <th scope="col" class="coin-name" style="text-align: initial;">Name</th>
                         <th scope="col" class="symbol">Symbol</th>
                         <th scope="col" class="price">Price</th>
                         <th scope="col" class="mcap py-2 px-0 rounded-end">Market Cap</th>
@@ -34,6 +32,7 @@ export async function coinsList(){
                                     <img 
                                         src="${el.image}" 
                                         alt="${el.name}"
+                                        style="width: 2rem; height: 2rem;"
                                         class="coin-image">
                                     <div class="d-flex align-items-center ps-3">
                                         ${el.name}
@@ -52,33 +51,4 @@ export async function coinsList(){
     `;
 
     main.insertAdjacentHTML('beforeend', element);
-
-    sheet.replaceSync(`
-        .coin-name {
-            width: 1rem !important
-        }
-
-        .coin-image {
-            width: 2rem;
-            height: 2rem;
-        }
-        
-        @media (width < 600px) {
-            .mcap {
-                display: none;
-            }
-            .price{
-                border-top-right-radius: 0.375rem;
-                border-bottom-right-radius: 0.375rem;
-            }
-        }
-        
-        @media (width < 550px) {
-            .symbol {
-                display: none;
-            }
-        }
-    `);
-
-    document.adoptedStyleSheets = [sheet];
 }
