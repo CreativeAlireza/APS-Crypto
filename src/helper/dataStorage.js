@@ -19,7 +19,7 @@ export function getUserData(username){
      Object.values(localStorage).filter(el => {
         if(el && parseString(el).userName === username) user = parseString(el);
     })  
-    return user;
+    return user || [];
 }
 
 export function parseString(param){
