@@ -22,10 +22,6 @@ export async function trending() {
                             <span class="coin-id fs-5 ms-2 me-1">${item.name}</span>
                             <span class="text-muted" style="font-size: small;">${item.symbol}</span>
                         </a>
-                        <div id="tooltip" role="tooltip">
-                            Click for More Info
-                            <div id="arrow" data-popper-arrow></div>
-                        </div>
                         <p class="d-flex align-items-end fs-5">${item.price_btc.toFixed(8)}btc</p>
                     </div>
                 `

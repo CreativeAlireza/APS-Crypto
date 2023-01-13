@@ -1,6 +1,5 @@
 import { trending } from "./trending.js";
 import { topMarketCap  } from "./topMarketCap.js";
-import { tooltip } from "../../helper/tooltip/tooltip.js";
 
 export function topCharts() {
     const sheet = new CSSStyleSheet();
@@ -45,8 +44,4 @@ export function topCharts() {
     `);
 
     document.adoptedStyleSheets = [sheet];
-
-    setTimeout(() => {
-        tooltip();
-    }, 3000);
 }

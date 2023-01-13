@@ -22,10 +22,6 @@ export async function topMarketCap(){
                                 <span class="coin-id fs-5 ms-2 me-1">${el.name}</span>
                                 <span class="text-muted" style="font-size: small;">${el.symbol}</span>
                             </a>
-                            <div id="tooltip" role="tooltip">
-                                Click for More Info
-                                <div id="arrow" data-popper-arrow></div>
-                            </div>
                             <p class="d-flex align-items-end fs-5">${el.market_cap}</p>
                         </div>
                     `
