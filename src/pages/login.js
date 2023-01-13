@@ -15,16 +15,20 @@ function getUserDataInLogin() {
             userName: username.value,
             password: password.value,
         }
-        const isAuthenticate = userAuth(user.userName, user.password);
-        if (isAuthenticate){
-            saveData('userAccess', isAuthenticate);
-            message(
-                `Loading Portfolio...`, portfolioUI, 3000)
-            }
-        else
-            message(
-                `Entered Info is Wrong.
-                Please check it again or Sign Up.`)
+
+        if(username.value && password.value){
+            const isAuthenticate = userAuth(user.userName, user.password);
+
+            if (isAuthenticate){
+                saveData('userAccess', isAuthenticate);
+                message(
+                    `Loading Portfolio...`, portfolioUI, 3000)
+                }
+            else
+                message(
+                    `Entered Info is Wrong.
+                    Please check it again or Sign Up.`)
+        } else message('Please Fill in the Feilds Carefully. Then Try Again.') 
     })
 }
 
