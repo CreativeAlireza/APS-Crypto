@@ -140,3 +140,8 @@ ul li {
         display: none;
     }
 }
+
+.gender-dorpdown li {
+    border: none;
+    padding: 0;
+}
