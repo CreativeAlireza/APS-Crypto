@@ -1,13 +1,14 @@
 import { clearMain } from "../ui/domActions/domActions.js";
-import { getData, saveData } from "../helper/dataStorage.js";
+import { getData, saveData, getToken } from "../helper/dataStorage.js";
 import { firstCharToUpperCase } from "../helper/firstCharToUpperCase.js";
+import { userProfile } from "../helper/userProfile.js";
 import { homeUI } from "./home.js";
 
 export function profileUI(props){
     const main = clearMain();
     
-    const user = getData(`user${props}`);
-    console.log(user);
+    const user = props ? getData(`user${props}`) : getData(getToken('userAccess'));
+
     const element = `
         <div class="container container-lg container-md container-sm text-center" style="width: 75%;">
             <div class="row mt-5 mb-1 border rounded shadow p-3">
@@ -51,6 +52,7 @@ function logOut() {
         const logoutBtn = document.querySelector('.logout-btn');
         logoutBtn.addEventListener('click', () => {
             saveData(`userAccess`, "");
-            homeUI()
+            userProfile();
+            homeUI();
         })
 }
