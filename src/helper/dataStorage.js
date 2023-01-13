@@ -9,3 +9,8 @@ export function getData(dataSet){
 export function getToken(dataSet){
     return localStorage.getItem(dataSet);
 }
+
+export function getAllKeys() {
+    return Object.keys(localStorage).filter(el => el !== 'userAccess');
+}
+
