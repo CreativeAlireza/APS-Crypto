@@ -7,6 +7,8 @@ export function navLogoutBtn() {
     const user = getData(getToken('userAccess'));
 
     if (user) {
+        removeNavSignIn();
+
         const menu = document.querySelector('.menu');
 
         const element = `
@@ -25,10 +27,26 @@ export function navLogoutBtn() {
     const navLogout = document.querySelector('.nav-logout');
     navLogout?.addEventListener('click', () => {
         saveData(`userAccess`, "");
+        addNavSignIn();
         navLogout.remove();
         closePanel();
         homeUI();
         userProfile();
     });
 
+}
+
+function removeNavSignIn(){
+    const navSignin = document.querySelector('.nav-signin');
+    navSignin.remove();
+}
+
+function addNavSignIn(){
+    const navList = document.querySelector('.nav-list');
+
+    const element = `
+        <li class="nav-signin">Sign In</li>
+    `; 
+
+    navList.insertAdjacentHTML('beforeend', element);
 }
