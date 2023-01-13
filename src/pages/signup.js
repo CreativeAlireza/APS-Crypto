@@ -2,6 +2,7 @@ import { clearMain } from "../ui/domActions/domActions.js";
 import { saveData } from "../helper/dataStorage.js";
 import { logInUI } from "./login.js";
 import { currnetDateFormat } from "../helper/currentDateFormat.js";
+import { profileUI } from "../pages/profile.js";
 
 function getUserDataInSignup(){
     const signupBtn = document.querySelector('.signup-btn');
@@ -12,21 +13,35 @@ function getUserDataInSignup(){
     const password = document.querySelector('#password');
     const flexCheckDefault = document.querySelector('#flexCheckDefault');
 
+    const gender = document.querySelector('.gender-dorpdown');
+    let genderValue = "";
+    gender.addEventListener('click', (e) => genderValue = e.target.innerText);
+
+    const UserId = randomUserId();
+
     signupBtn.addEventListener('click', () => {
         const user = {
             firstName: firstname.value,
             lastName: lastname.value,
+            userId: `user${UserId}`,
             userName: username.value,
             email: email.value,
             password: password.value,
             isOver18: flexCheckDefault.checked,
+            gender: genderValue,
             isLogIn: true,
             signUpDate: currnetDateFormat()
         }
-        saveData("user", JSON.stringify(user));
+        saveData(`user${UserId}`, JSON.stringify(user));
+        saveData(`userAccess`, user.userId);
+        profileUI(UserId);
     })
 }
 
+function randomUserId(){
+    const randomUmber = Math.floor(Math.random() * 1000 - 100);
+    return randomUmber > 0 ? randomUmber : randomUmber * -1;
+}
 
 function goToLoginPage(){
     const userLogin = document.querySelector('.user-login');
@@ -71,21 +86,22 @@ export function signUpUI(){
                 <input type="password" name="password" id="password" class="w-100 inputs ps-2">
             </div>
 
-            <div class="dropdown me-1">
-                <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" data-bs-offset="10,20">
-                    Offset
-                </button>
-                <ul class="gender-dorpdown dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Male</a></li>
-                    <li><a class="dropdown-item" href="#">Female</a></li>
-                </ul>
-            </div>
-            <div class="p-2">
-
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                <label class="form-check-label" for="flexCheckDefault">
-                    I am over 18 years old
-                </label>
+            <div class="d-flex justify-content-between">
+                <div class="dropdown me-1">
+                    <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" data-bs-offset="10,20">
+                        Gender
+                    </button>
+                    <ul class="gender-dorpdown dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Male</a></li>
+                        <li><a class="dropdown-item" href="#">Female</a></li>
+                    </ul>
+                </div>
+                <div class="p-2 me-3">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault">
+                        I am over 18 years old
+                    </label>
+                </div>
             </div>
 
             <input type="button" value="Sign Up" class="signup-btn bg-light border w-100 p-2 my-3">
@@ -100,7 +116,7 @@ export function signUpUI(){
     `;
 
     main.insertAdjacentHTML('afterbegin', element);
-    
+
     // get user data by sign up form
     getUserDataInSignup();
 
