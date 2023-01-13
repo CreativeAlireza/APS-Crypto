@@ -29,7 +29,7 @@ function getUserDataInSignup(){
             email: email.value,
             password: password.value,
             isOver18: flexCheckDefault.checked,
-            gender: genderValue,
+            gender: genderValue || 'Male',
             signUpDate: currnetDateFormat()
         }
         saveData(`user${UserId}`, JSON.stringify(user));
